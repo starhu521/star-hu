@@ -1,15 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
+const routesMap = [
+  {
+    path: '/login',
+    component: () => import('../views/login/index'),
+    hidden: true
+  },
+  {
+    path: '/404',
+    component: () => import('../views/notFound/index'),
+    hidden: true
+  },
+  {
+    path: '/',
+    redirect: '/login',
+    hidden: true
+  }
+]
+
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
+  routes: routesMap,
+  scrollBehavior: () => ({y: 0})
 })

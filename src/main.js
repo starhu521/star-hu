@@ -5,6 +5,10 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import VueParticles from 'vue-particles'
+
+Vue.use(VueParticles)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
