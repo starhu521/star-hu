@@ -100,10 +100,10 @@ export default {
         }
       })
     },
-    handleBlur() {
+    handleBlur () {
       this.nameBlur = true
     },
-    handleFocus() {
+    handleFocus () {
       this.nameBlur = false
     }
   }

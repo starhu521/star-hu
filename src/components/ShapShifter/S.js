@@ -3,7 +3,7 @@ let S = {
     S.Drawing.init('.canvas')
     S.ShapeBuilder.init()
     S.UI.init()
-   // S.UI.simulate('Shape|Shifter|Vue|to start|#countdown 3|star-hu|')
+    // S.UI.simulate('Shape|Shifter|Vue|to start|#countdown 3|star-hu|')
     S.Drawing.loop(function () {
       S.Shape.render()
     })
@@ -196,7 +196,7 @@ S.UI = (function () {
           break
 
         case 'icon':
-          S.ShapeBuilder.imageFile('font-awesome/' + value + '.png', function (obj) {
+          S.ShapeBuilder.imageFile('@/assets/icon/iconfont.svg', function (obj) {
             S.Shape.switchShape(obj)
           })
           break

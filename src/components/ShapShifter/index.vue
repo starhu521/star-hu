@@ -20,20 +20,22 @@ export default {
       default: false
     }
   },
-  data() {
+  data () {
     return {
     }
   },
-  mounted() {
+  mounted () {
     S.init()
   },
   watch: {
-    contents: function(val, oldval) {
+    contents: function (val, oldval) {
       val += ''
-      S.UI.simulate(val[val.length-1])
+      if (val) {
+        S.UI.simulate(val[val.length - 1])
+      }
     },
-    showWhole: function(val, oldval) {
-      if(val === true) {
+    showWhole: function (val, oldval) {
+      if (val === true && this.contents) {
         S.UI.simulate(this.contents)
       }
     }
@@ -47,5 +49,3 @@ export default {
   .canvas
     display inline-block
 </style>
-
-
