@@ -13,6 +13,11 @@ export default {
       type: null,
       required: false,
       default: ''
+    },
+    showWhole: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   data() {
@@ -21,6 +26,17 @@ export default {
   },
   mounted() {
     S.init()
+  },
+  watch: {
+    contents: function(val, oldval) {
+      val += ''
+      S.UI.simulate(val[val.length-1])
+    },
+    showWhole: function(val, oldval) {
+      if(val === true) {
+        S.UI.simulate(this.contents)
+      }
+    }
   },
   methods: {
   }

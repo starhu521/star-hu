@@ -1,5 +1,10 @@
 <template>
   <div class="login-container">
+    <shap-shifter class="shap-shifter"
+    v-if="loginForm.name !== '' || !nameBlur"
+    :contents="loginForm.name"
+    :showWhole="nameBlur">
+    </shap-shifter>
     <vue-particles
       color="#dedede"
       :particleOpacity="0.7"
@@ -24,7 +29,7 @@
       ref="loginForm"
       id="loginForm">
       <el-form-item prop="name">
-        <el-input placeholder="请输入用户名" v-model="loginForm.name" auto-complete="off">
+        <el-input @focus="handleFocus" @blur="handleBlur" placeholder="请输入用户名" v-model="loginForm.name" auto-complete="off">
           <i slot="prefix" class="icon iconfont-star icon-star-user"></i>
         </el-input>
       </el-form-item>
@@ -42,8 +47,13 @@
 </template>
 
 <script>
+import ShapShifter from '@/components/ShapShifter'
+
 export default {
   name: 'login',
+  components: {
+    ShapShifter
+  },
   data () {
     const checkUserName = (rule, value, callback) => {
       if (!value) {
@@ -69,7 +79,8 @@ export default {
         password: [
           { required: true, trigger: 'blur', validator: checkPassword }
         ]
-      }
+      },
+      nameBlur: true
     }
   },
   methods: {
@@ -88,6 +99,12 @@ export default {
           })
         }
       })
+    },
+    handleBlur() {
+      this.nameBlur = true
+    },
+    handleFocus() {
+      this.nameBlur = false
     }
   }
 }
@@ -122,4 +139,10 @@ export default {
     background-color #000000
   .el-form-item
     margin 25px auto
+  .shap-shifter
+    position absolute
+    height 400px
+    width 100%
+    top 0
+    left 0
 </style>
