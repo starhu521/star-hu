@@ -1,15 +1,15 @@
 <template>
-  <canvas class="canvas">
+  <canvas ref="canvas" class="canvas">
   </canvas>
 </template>
 
 <script>
-import S from './index'
+import S from './S.js'
 
 export default {
   name: 'ShapShifter',
   props: {
-    text: {
+    contents: {
       type: null,
       required: false,
       default: ''
@@ -17,17 +17,6 @@ export default {
   },
   data() {
     return {
-      drawing: {
-        canvas: null,
-        context: null,
-        renderFn: null,
-        requestFrame: window.requestAnimationFrame || 
-                      window.webkitRequestAnimationFrame ||
-                      window.mozRequestAnimationFrame ||
-                      window.oRequestAnimationFrame ||
-                      window.msRequestAnimationFrame ||
-                      function(callback) { window.setTimeout(callback, 1000/60) }
-      }
     }
   },
   mounted() {

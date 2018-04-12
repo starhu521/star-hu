@@ -18,6 +18,10 @@ const routesMap = [
     path: '/',
     redirect: '/login',
     hidden: true
+  },
+  {
+    path: '/cool',
+    component: () => import('@/components/ShapShifter/index')
   }
 ]
 
