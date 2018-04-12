@@ -22,18 +22,19 @@
       status-icon
       :rules="loginRules"
       ref="loginForm"
-      label-width="100px"
       id="loginForm">
-      <el-form-item label="用户名" prop="name">
-        <el-input v-model="loginForm.name" auto-complete="off">
+      <el-form-item prop="name">
+        <el-input placeholder="请输入用户名" v-model="loginForm.name" auto-complete="off">
+          <i slot="prefix" class="icon iconfont-star icon-star-user"></i>
         </el-input>
       </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input type="password" v-model="loginForm.password" auto-complete="off">
+      <el-form-item prop="password">
+        <el-input placeholder="请输入密码" type="password" v-model="loginForm.password" auto-complete="off">
+          <i slot="prefix" class="icon iconfont-star icon-star-mima"></i>
         </el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('loginForm')">登录
+        <el-button @click="submitForm('loginForm')">登录
         </el-button>
       </el-form-item>
     </el-form>
@@ -92,23 +93,32 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.login-container
-  position fixed
-  background-image url('~@/assets/login/login-bg.jpg')
-  background-size cover
-  top 0
-  left 0
-  width 100%
-  height 100%
-  min-width 350px
-#loginForm
-  position absolute
-  top 50%
-  left 50%
-  transform translate(-50%, -30%)
-  .el-input
+  .login-container
+    position fixed
+    background-image url('~@/assets/login/login-bg.jpg')
+    background-size cover
+    width 100%
+    height 100%
+    min-width 350px
+  #loginForm
+    position absolute
+    top 50%
+    left 50%
+    width 350px
+    padding 35px 35px 15px 35px
+    margin 120px auto
+    transform translate(-50%, -30%)
+  .el-input >>> input
     height 47px
-    width 85%
-    .input
-      height 47px
+    background-color #47474aab
+    color #ffffff
+  button
+    background-color #47474aab
+    color #ffffff
+    border-color #000000
+    width 100%
+  button:hover
+    background-color #000000
+  .el-form-item
+    margin 25px auto
 </style>

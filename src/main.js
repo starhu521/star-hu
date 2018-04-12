@@ -10,6 +10,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en'
 
+import '@/assets/icon/iconfont.css'
+
 Vue.use(VueParticles)
 Vue.use(ElementUI, { locale })
 
