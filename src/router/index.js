@@ -1,31 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import _ from '@/utils/lodash'
+import RoutesMapConfig from './routes'
+import beforeEachHooks from './beforeEachHooks'
+import commonRoutesMap from './commonRoutes'
+
 Vue.use(Router)
 
-const routesMap = [
-  {
-    path: '/login',
-    component: () => import('../views/login/index'),
-    hidden: true
-  },
-  {
-    path: '/404',
-    component: () => import('../views/notFound/index'),
-    hidden: true
-  },
-  {
-    path: '/',
-    redirect: '/login',
-    hidden: true
-  },
-  {
-    path: '/cool',
-    component: () => import('@/components/ShapShifter/index')
-  }
-]
-
-export default new Router({
-  routes: routesMap,
-  scrollBehavior: () => ({y: 0})
+const routerInstance = new Router({
+  mode: 'history',
+  linkActiveClass: 'active',
+  scrollBehavior: () => ({ y: 0 }),
+  routes: RoutesMapConfig.concat(commonRoutesMap)
 })
+
+_.values(beforeEachHooks).forEach((hook) => {
+  routerInstance.beforeEach(hook)
+})
+
+export default routerInstance
