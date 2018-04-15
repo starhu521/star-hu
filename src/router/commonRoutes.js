@@ -19,6 +19,14 @@ export default [
     hidden: true
   },
   {
+    path: '/index',
+    meta: {
+      title: '主页',
+      ignoreAuth: false
+    },
+    component: () => import('@/views/index/index')
+  },
+  {
     path: '/',
     redirect: '/home',
     hidden: true

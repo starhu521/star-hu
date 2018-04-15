@@ -15,5 +15,5 @@ export default {
     margin 0
     padding 0
   body
-    background black
+    min-width 350px
 </style>
