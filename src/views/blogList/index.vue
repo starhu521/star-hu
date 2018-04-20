@@ -8,7 +8,7 @@
 
 export default {
   name: 'documentation',
-  data() {
+  data () {
     return {
       articleList: [
         { title: '基础篇', href: 'https://segmentfault.com/a/1190000009275424' },
