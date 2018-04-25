@@ -8,5 +8,11 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <% if (htmlWebpackPlugin.options.libJsName){ %>
+      <link rel="stylesheet" href="./static/<%= htmlWebpackPlugin.options.libCssName %>">
+    <% } %>
+    <% if (htmlWebpackPlugin.options.libJsName){ %>
+      <script src="./static/<%= htmlWebpackPlugin.options.libJsName %>"></script>
+    <% } %>
   </body>
 </html>
